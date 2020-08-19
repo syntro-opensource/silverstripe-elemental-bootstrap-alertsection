@@ -21,7 +21,8 @@ composer require syntro/silverstripe-elemental-bootstrap-alertsection
 See [License](license.md)
 
 ## Documentation
- * [Documentation readme](docs/en/readme.md)
+ * [Color](docs/en/colors.md)
+ * [Icons](docs/en/icons.md)
 
 <!-- ## Example configuration (optional)
 If your module makes use of the config API in SilverStripe it's a good idea to provide an example config
