@@ -1,6 +1,10 @@
 # SilverStripe elemental bootstrap alertsection
 
-Provides a simple section alert
+This module is part of a larger collection. See
+[`syntro/silverstripe-elemental-bootstrap-collection`](https://github.com/syntro-opensource/silverstripe-elemental-bootstrap-collection)
+for details.
+
+Provides a simple section alert.
 
 ## Requirements
 
