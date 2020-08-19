@@ -8,7 +8,7 @@ Provides a simple section alert
 * Silverstripe elemental ^4
 * buckleshusky/fontawesomeiconpicker ^1
 * [Bootstrap](https://getbootstrap.com) on the Frontend
-* [Bootstrap](https://fontawesome.com) on the Frontend (if enabled)
+* [Fontawesome](https://fontawesome.com) on the Frontend (if enabled)
 
 ## Installation
 
