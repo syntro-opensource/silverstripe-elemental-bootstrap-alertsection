@@ -13,8 +13,16 @@
         <p class="m-0 text-justify text-md-center">
             $Content
         </p>
-        <p class="mb-0 mt-2">
-            <button class="btn btn-sm btn-outline-$TextColor shadow" name="button">Mehr Informationen</button>
-        </p>
+        <% if $Buttons %>
+            <p class="mb-0 mt-2">
+                <% loop Buttons %>
+                    <% if LinkURL %>
+                        <a {$IDAttr} class="mx-1 btn btn-sm btn-outline-$Up.TextColor" href="{$LinkURL}"{$TargetAttr}>
+                            {$Title}
+                        </a>
+                    <% end_if %>
+                <% end_loop %>
+            </p>
+        <% end_if %>
     </div>
 </section>

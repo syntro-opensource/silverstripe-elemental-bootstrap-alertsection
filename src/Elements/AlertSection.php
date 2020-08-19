@@ -7,6 +7,8 @@ use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use DNADesign\Elemental\Models\BaseElement;
 use BucklesHusky\FontAwesomeIconPicker\Forms\FAPickerField;
+use gorriecoe\Link\Models\Link;
+use gorriecoe\LinkField\LinkField;
 
 /**
  *
@@ -71,6 +73,16 @@ class ElementAlertSection extends BaseElement
         'BackgroundColor' => 'primary'
     ];
 
+    private static $many_many = [
+        'Buttons' => Link::class
+    ];
+
+    private static $many_many_extraFields = [
+        'Buttons' => [
+            'Sort' => 'Int' // Required for all many_many relationships
+        ]
+    ];
+
     /**
      * @return FieldList
      */
@@ -102,6 +114,15 @@ class ElementAlertSection extends BaseElement
                     'FAIcon'
                 ]);
             }
+            $fields->addFieldToTab(
+                'Root.Main',
+                LinkField::create(
+                    'Buttons',
+                    'Buttons',
+                    $this
+                )
+            );
+            return $fields;
         });
 
         return parent::getCMSFields();

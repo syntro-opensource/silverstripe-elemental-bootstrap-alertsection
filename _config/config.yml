@@ -1,0 +1,5 @@
+gorriecoe\Link\Models\Link:
+  allowed_types:
+    - URL
+    - SiteTree
+    - File
