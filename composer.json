@@ -13,7 +13,8 @@
         "silverstripe/admin": "^1.0",
         "dnadesign/silverstripe-elemental": "^4",
         "buckleshusky/fontawesomeiconpicker": "^1",
-        "gorriecoe/silverstripe-link": "^1"
+        "gorriecoe/silverstripe-link": "^1",
+        "gorriecoe/silverstripe-linkfield": "^1"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
