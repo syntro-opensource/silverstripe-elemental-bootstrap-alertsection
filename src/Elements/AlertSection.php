@@ -1,6 +1,6 @@
 <?php
 
-namespace Syntro\BootstrapAlertsection\Elements;
+namespace Syntro\SilverStripeElementalBootstrapAlertSection\Elements;
 
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBField;
