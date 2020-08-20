@@ -13,7 +13,7 @@ use gorriecoe\LinkField\LinkField;
 /**
  *
  */
-class ElementAlertSection extends BaseElement
+class AlertSection extends BaseElement
 {
     /**
      * @var bool
@@ -199,5 +199,35 @@ class ElementAlertSection extends BaseElement
     public function getType()
     {
         return _t(__CLASS__.'.BlockType', 'Alert Section');
+    }
+
+    /**
+     * ButtonHolder - helperfunction to allow template-replacement
+     *
+     * @return string
+     */
+    public function ButtonHolder()
+    {
+        return $this->renderWith('Syntro/BootstrapAlertSection/Elements/ButtonHolder');
+    }
+
+    /**
+     * ContentHolder - helperfunction to allow template-replacement
+     *
+     * @return string
+     */
+    public function ContentHolder()
+    {
+        return $this->renderWith('Syntro/BootstrapAlertSection/Elements/ContentHolder');
+    }
+
+    /**
+     * HeaderHolder - helperfunction to allow template-replacement
+     *
+     * @return string
+     */
+    public function HeaderHolder()
+    {
+        return $this->renderWith('Syntro/BootstrapAlertSection/Elements/HeaderHolder');
     }
 }

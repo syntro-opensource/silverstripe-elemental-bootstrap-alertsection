@@ -27,6 +27,7 @@ See [License](license.md)
 ## Documentation
  * [Color](docs/en/colors.md)
  * [Icons](docs/en/icons.md)
+ * [Customize](docs/en/customizing.md)
 
 <!-- ## Example configuration (optional)
 If your module makes use of the config API in SilverStripe it's a good idea to provide an example config
