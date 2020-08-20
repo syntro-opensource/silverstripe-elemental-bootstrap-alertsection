@@ -11,7 +11,9 @@ use gorriecoe\Link\Models\Link;
 use gorriecoe\LinkField\LinkField;
 
 /**
+ *  Bootstrap based alert section
  *
+ * @author Matthias Leutenegger <hello@syntro.ch>
  */
 class AlertSection extends BaseElement
 {
@@ -140,7 +142,7 @@ class AlertSection extends BaseElement
         $selection = [];
         foreach ($colors as $key => $value) {
             $selection[$key] = _t(
-                __CLASS__ . '.'.$key,
+                __CLASS__ . '.' . $key,
                 $value
             );
         }
@@ -198,7 +200,7 @@ class AlertSection extends BaseElement
      */
     public function getType()
     {
-        return _t(__CLASS__.'.BlockType', 'Alert Section');
+        return _t(__CLASS__ . '.BlockType', 'Alert Section');
     }
 
     /**
