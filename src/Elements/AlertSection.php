@@ -235,4 +235,14 @@ class AlertSection extends BaseElement
     {
         return $this->renderWith('Syntro/BootstrapAlertSection/Elements/HeaderHolder');
     }
+
+    /**
+     * IconHolder - helperfunction to allow template-replacement
+     *
+     * @return string
+     */
+    public function IconHolder()
+    {
+        return $this->renderWith('Syntro/BootstrapAlertSection/Elements/IconHolder');
+    }
 }

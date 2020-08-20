@@ -14,5 +14,6 @@ files in your project:
 
 * `templates/Syntro/BootstrapAlertSection/Elements/AlertSection.ss`
 * `templates/Syntro/BootstrapAlertSection/Elements/HeaderHolder.ss`
+* `templates/Syntro/BootstrapAlertSection/Elements/IconHolder.ss`
 * `templates/Syntro/BootstrapAlertSection/Elements/ContentHolder.ss`
 * `templates/Syntro/BootstrapAlertSection/Elements/ButtonHolder.ss`
