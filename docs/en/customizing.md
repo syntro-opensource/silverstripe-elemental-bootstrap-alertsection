@@ -12,8 +12,8 @@ will reflect in the block.
 You can customize how the block is rendered by creating any of the following
 files in your project:
 
-* `templates/Syntro/BootstrapAlertSection/Elements/AlertSection.ss`
-* `templates/Syntro/BootstrapAlertSection/Elements/HeaderHolder.ss`
-* `templates/Syntro/BootstrapAlertSection/Elements/IconHolder.ss`
-* `templates/Syntro/BootstrapAlertSection/Elements/ContentHolder.ss`
-* `templates/Syntro/BootstrapAlertSection/Elements/ButtonHolder.ss`
+* `templates/Syntro/SilverStripeElementalBootstrapAlertSection/Elements/AlertSection.ss`
+* `templates/Syntro/SilverStripeElementalBootstrapAlertSection/Elements/HeaderHolder.ss`
+* `templates/Syntro/SilverStripeElementalBootstrapAlertSection/Elements/IconHolder.ss`
+* `templates/Syntro/SilverStripeElementalBootstrapAlertSection/Elements/ContentHolder.ss`
+* `templates/Syntro/SilverStripeElementalBootstrapAlertSection/Elements/ButtonHolder.ss`

@@ -6,7 +6,7 @@ as background color. If your theme uses more colors or names them differently,
 you can use the `colors` array:
 
 ```yaml
-Syntro\BootstrapAlertsection\Elements\ElementAlertSection:
+Syntro\SilverStripeElementalBootstrapAlertSection\Elements\ElementAlertSection:
   colors:
     highlight: Highlight
 ```
@@ -19,7 +19,7 @@ When adding custom colors (or changing the default bootstrap ones), the default
 `light` color for text and buttons might not be useful. You can use the `textColors`
 map:
 ```yaml
-Syntro\BootstrapAlertsection\Elements\ElementAlertSection:
+Syntro\SilverStripeElementalBootstrapAlertSection\Elements\ElementAlertSection:
   textColors:
     highlight: dark
 ```
