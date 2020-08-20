@@ -112,11 +112,13 @@ class AlertSection extends BaseElement
                     FAPickerField::create('FAIcon', 'Icon'),
                     'Content'
                 );
-            } else {
-                $fields->removeByName([
-                    'FAIcon'
-                ]);
+            }  else {
+                $fields->removeByName('FAIcon');
             }
+            $fields->removeByName([
+                'Buttons',
+                'Root.Buttons'
+            ]);
             $fields->addFieldToTab(
                 'Root.Main',
                 LinkField::create(
