@@ -33,7 +33,7 @@ script:
   - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit -c 'phpunit.xml.dist'; fi
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit -c 'phpunit.xml.dist' --coverage-clover=coverage.xml; fi
   - if [[ $PHPCS_TEST ]]; then vendor/bin/phpcs src/ tests/ *.php; fi
-  - if [[ $PHPSTAN_TEST ]]; then - vendor/bin/phpstan analyse src/ tests/ -c "phpstan.neon" -a vendor/symbiote/silverstripe-phpstan/bootstrap.php --level 4; fi
+  - if [[ $PHPSTAN_TEST ]]; then vendor/bin/phpstan analyse src/ tests/ -c "phpstan.neon" -a vendor/symbiote/silverstripe-phpstan/bootstrap.php --level 4; fi
   - if [[ $NPM_TEST ]]; then git diff-files --quiet -w --relative=client; fi
   - if [[ $NPM_TEST ]]; then git diff --name-status --relative=client; fi
   - if [[ $NPM_TEST ]]; then yarn coverage; fi
