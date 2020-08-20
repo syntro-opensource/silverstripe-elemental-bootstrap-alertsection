@@ -5,6 +5,7 @@ namespace Syntro\BootstrapAlertsection\Elements;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\Forms\FieldList;
 use DNADesign\Elemental\Models\BaseElement;
 use BucklesHusky\FontAwesomeIconPicker\Forms\FAPickerField;
 use gorriecoe\Link\Models\Link;
@@ -178,7 +179,7 @@ class AlertSection extends BaseElement
 
 
     /**
-     * @return DBHTMLText
+     * @return string
      */
     public function getSummary()
     {
