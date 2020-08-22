@@ -3,6 +3,6 @@
         $IconHolder
     <% end_if %>
     <% if ShowTitle %>
-        <b>$Title:</b>
+        <b>$Title</b>
     <% end_if %>
 </div>

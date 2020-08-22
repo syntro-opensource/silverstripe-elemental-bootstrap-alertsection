@@ -10,23 +10,19 @@ use DNADesign\Elemental\Models\BaseElement;
 use BucklesHusky\FontAwesomeIconPicker\Forms\FAPickerField;
 use gorriecoe\Link\Models\Link;
 use gorriecoe\LinkField\LinkField;
+use Syntro\SilverStripeElementalBaseitems\Elements\BootstrapSectionBaseElement;
 
 /**
  *  Bootstrap based alert section
  *
  * @author Matthias Leutenegger <hello@syntro.ch>
  */
-class AlertSection extends BaseElement
+class AlertSection extends BootstrapSectionBaseElement
 {
     /**
      * @var bool
      */
     private static $inline_editable = false;
-
-    /**
-     * @var string
-     */
-    private static $controller_template = 'SectionHolder';
 
     /**
      * @var string
@@ -39,25 +35,39 @@ class AlertSection extends BaseElement
     private static $table_name = 'ElementAlertSection';
 
     /**
+     * set to false if image option should not show up
+     *
+     * @config
+     * @var bool
+     */
+    private static $allow_image_background = false;
+
+    /**
+     * Available background colors for this Element
+     *
      * @config
      * @var array
      */
-    private static $colors = [
-        'primary' => 'Primary',
-        'success' => 'Success',
-        'warning' => 'Warning',
+    private static $background_colors = [
         'danger' => 'Danger',
+        'warning' => 'Warning',
+        'success' => 'Success',
+        'primary' => 'Primary',
     ];
 
     /**
+     * Color mapping from background color. This is mainly intended
+     * to set a default color on the section-level, ensuring text is readable.
+     * Colors of subelementscan be added via templates
+     *
      * @config
      * @var array
      */
-    private static $textColors = [
-        'primary' => 'light',
-        'success' => 'light',
-        'warning' => 'light',
+    private static $text_colors_by_background = [
         'danger' => 'light',
+        'warning' => 'light',
+        'success' => 'light',
+        'primary' => 'light',
     ];
 
     /**
@@ -67,13 +77,12 @@ class AlertSection extends BaseElement
     private static $faIcons = true;
 
     private static $db = [
-        'BackgroundColor' => 'Varchar(50)',
         'Content' => 'Text',
         'FAIcon' => 'Varchar(50)'
     ];
 
     private static $defaults = [
-        'BackgroundColor' => 'primary'
+        'BackgroundColor' => 'danger'
     ];
 
     private static $many_many = [
@@ -96,15 +105,7 @@ class AlertSection extends BaseElement
             $fields->dataFieldByName('Content')
                 ->setRows(5);
 
-            $fields->addFieldToTab(
-                'Root.Main',
-                DropdownField::create(
-                    'BackgroundColor',
-                    'Background Color',
-                    $this->getColors()
-                ),
-                'Content'
-            );
+
 
             if ($this->useIcons()) {
                 $fields->addFieldToTab(
@@ -127,46 +128,20 @@ class AlertSection extends BaseElement
                     $this
                 )
             );
-            return $fields;
+            // add a dropdown with available colors
+            $fields->removeByName('BackgroundColor');
+            $fields->addFieldToTab(
+                'Root.Main',
+                DropdownField::create(
+                    'BackgroundColor',
+                    'Alert Color',
+                    $this->getBackgroundColors()
+                ),
+                'FAIcon'
+            );
         });
 
         return parent::getCMSFields();
-    }
-
-
-    /**
-     * getColors - returns a Map of named colors
-     *
-     * @return array
-     */
-    public function getColors()
-    {
-        $colors = $this->config()->get('colors');
-        $selection = [];
-        foreach ($colors as $key => $value) {
-            $selection[$key] = _t(
-                __CLASS__ . '.' . $key,
-                $value
-            );
-        }
-        return $selection;
-    }
-
-    /**
-     * getTextColor - returns a suitable color for text and buttons.
-     * if no color is defined, 'light' is returned.
-     *
-     * @return string
-     */
-    public function getTextColor()
-    {
-        $colors = $this->config()->get('textColors');
-
-        if (isset($colors[$this->BackgroundColor])) {
-            return $colors[$this->BackgroundColor];
-        }
-
-        return 'light';
     }
 
     /**
@@ -213,7 +188,7 @@ class AlertSection extends BaseElement
      */
     public function ButtonHolder()
     {
-        return $this->renderWith('Syntro/BootstrapAlertSection/Elements/ButtonHolder');
+        return $this->renderWith($this->getSubTemplate(__FUNCTION__));
     }
 
     /**
@@ -223,7 +198,7 @@ class AlertSection extends BaseElement
      */
     public function ContentHolder()
     {
-        return $this->renderWith('Syntro/BootstrapAlertSection/Elements/ContentHolder');
+        return $this->renderWith($this->getSubTemplate(__FUNCTION__));
     }
 
     /**
@@ -233,7 +208,7 @@ class AlertSection extends BaseElement
      */
     public function HeaderHolder()
     {
-        return $this->renderWith('Syntro/BootstrapAlertSection/Elements/HeaderHolder');
+        return $this->renderWith($this->getSubTemplate(__FUNCTION__));
     }
 
     /**
@@ -243,6 +218,6 @@ class AlertSection extends BaseElement
      */
     public function IconHolder()
     {
-        return $this->renderWith('Syntro/BootstrapAlertSection/Elements/IconHolder');
+        return $this->renderWith($this->getSubTemplate(__FUNCTION__));
     }
 }
