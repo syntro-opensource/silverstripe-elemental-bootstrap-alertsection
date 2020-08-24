@@ -20,6 +20,14 @@ use Syntro\SilverStripeElementalBaseitems\Elements\BootstrapSectionBaseElement;
 class AlertSection extends BootstrapSectionBaseElement
 {
     /**
+     * This defines the block name in the CSS
+     *
+     * @config
+     * @var string
+     */
+    private static $block_name = 'alert-section';
+
+    /**
      * @var bool
      */
     private static $inline_editable = false;
