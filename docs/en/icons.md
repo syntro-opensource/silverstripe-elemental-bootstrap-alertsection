@@ -5,5 +5,5 @@ but you can disable it via yaml if necessary:
 
 ```yaml
 Syntro\SilverStripeElementalBootstrapAlertSection\Elements\ElementAlertSection:
-  faIcons: false
+  use_fa_icons: false
 ```

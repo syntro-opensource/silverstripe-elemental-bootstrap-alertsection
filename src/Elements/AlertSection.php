@@ -43,6 +43,15 @@ class AlertSection extends BootstrapSectionBaseElement
      */
     private static $table_name = 'ElementAlertSection';
 
+
+    /**
+     * if set to false, no Icons will be displayed
+     *
+     * @config
+     * @var bool
+     */
+    private static $use_fa_icons = true;
+
     /**
      * set to false if image option should not show up
      *
@@ -84,11 +93,6 @@ class AlertSection extends BootstrapSectionBaseElement
 
     private static $link_colors_by_text = [];
 
-    /**
-     * @config
-     * @var bool
-     */
-    private static $faIcons = true;
 
     private static $db = [
         'Content' => 'Text',
@@ -194,7 +198,7 @@ class AlertSection extends BootstrapSectionBaseElement
      */
     public function useIcons()
     {
-        return $this->config()->get('faIcons');
+        return $this->config()->get('use_fa_icons');
     }
 
 

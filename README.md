@@ -31,9 +31,8 @@ composer require syntro/silverstripe-elemental-bootstrap-alertsection
 See [License](license.md)
 
 ## Documentation
- * [Color](docs/en/colors.md)
+All configuration options follow [the base items config](https://github.com/syntro-opensource/silverstripe-elemental-bootstrap-baseitems#documentation). The following options are custom to this section:
  * [Icons](docs/en/icons.md)
- * [Customize](docs/en/customizing.md)
 
 <!-- ## Example configuration (optional)
 If your module makes use of the config API in SilverStripe it's a good idea to provide an example config
