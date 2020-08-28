@@ -3,6 +3,7 @@
 namespace Syntro\SilverStripeElementalBootstrapAlertSection\Elements;
 
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\FieldList;
@@ -35,7 +36,7 @@ class AlertSection extends BootstrapSectionBaseElement
     /**
      * @var string
      */
-    private static $icon = 'font-icon-attention';
+    private static $icon = 'elemental-icon-alert';
 
     /**
      * @var string
@@ -50,6 +51,9 @@ class AlertSection extends BootstrapSectionBaseElement
      */
     private static $allow_image_background = false;
 
+
+    private static $add_default_background_color = false;
+
     /**
      * Available background colors for this Element
      *
@@ -57,9 +61,9 @@ class AlertSection extends BootstrapSectionBaseElement
      * @var array
      */
     private static $background_colors = [
-        'danger' => 'Danger',
-        'warning' => 'Warning',
-        'success' => 'Success',
+        'danger' => 'Danger (red)',
+        'warning' => 'Warning (yellow)',
+        'success' => 'Success (green)',
         'primary' => 'Primary',
     ];
 
@@ -78,6 +82,8 @@ class AlertSection extends BootstrapSectionBaseElement
         'primary' => 'light',
     ];
 
+    private static $link_colors_by_text = [];
+
     /**
      * @config
      * @var bool
@@ -86,11 +92,13 @@ class AlertSection extends BootstrapSectionBaseElement
 
     private static $db = [
         'Content' => 'Text',
+        'DisplayIcon' => 'Boolean',
         'FAIcon' => 'Varchar(50)'
     ];
 
     private static $defaults = [
-        'BackgroundColor' => 'danger'
+        'BackgroundColor' => 'danger',
+        'DisplayIcon' => false
     ];
 
     private static $many_many = [
@@ -111,19 +119,12 @@ class AlertSection extends BootstrapSectionBaseElement
         $this->beforeUpdateCMSFields(function ($fields) {
             /* @var FieldList $fields */
             $fields->dataFieldByName('Content')
-                ->setRows(5);
-
-
-
-            if ($this->useIcons()) {
-                $fields->addFieldToTab(
-                    'Root.Main',
-                    FAPickerField::create('FAIcon', 'Icon'),
+                ->setRows(5)
+                ->setTitle(_t(
+                    __CLASS__ . '.CONTENT',
                     'Content'
-                );
-            }  else {
-                $fields->removeByName('FAIcon');
-            }
+                ));
+
             $fields->removeByName([
                 'Buttons',
                 'Root.Buttons'
@@ -132,7 +133,10 @@ class AlertSection extends BootstrapSectionBaseElement
                 'Root.Main',
                 LinkField::create(
                     'Buttons',
-                    'Buttons',
+                    _t(
+                        __CLASS__ . '.BUTTONS',
+                        'Buttons'
+                    ),
                     $this
                 )
             );
@@ -141,12 +145,43 @@ class AlertSection extends BootstrapSectionBaseElement
             $fields->addFieldToTab(
                 'Root.Main',
                 DropdownField::create(
-                    'BackgroundColor',
-                    'Alert Color',
-                    $this->getBackgroundColors()
+                    'BackgroundColorLabel',
+                    _t(
+                        __CLASS__ . '.COLOR',
+                        'Color'
+                    ),
+                    $this->getTranslatedOptionsFor('background_colors', false)
                 ),
-                'FAIcon'
+                'Content'
             );
+
+            // Add icon Field
+            $fields->removeByName([
+                'FAIcon',
+                'DisplayIcon'
+            ]);
+            if ($this->useIcons()) {
+                $fields->addFieldsToTab(
+                    'Root.Main',
+                    [
+                        CheckboxField::create(
+                            'DisplayIcon',
+                            _t(
+                                __CLASS__ . '.DISPLAYICON',
+                                'Display icon'
+                            )
+                        ),
+                        $iconField = FAPickerField::create(
+                            'FAIcon',
+                            _t(
+                                __CLASS__ . '.ICON',
+                                'Icon'
+                            )
+                        ),
+                    ]
+                );
+                $iconField->hideUnless('DisplayIcon')->isChecked();
+            }
         });
 
         return parent::getCMSFields();

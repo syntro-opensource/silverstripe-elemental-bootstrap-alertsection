@@ -1,6 +1,6 @@
 <section class="bg-$BackgroundColor text-$TextColor py-4">
     <div class="container text-center">
-        <% if FAIcon && useIcons || ShowTitle %>
+        <% if DisplayIcon && useIcons || ShowTitle %>
             $HeaderHolder
         <% end_if %>
         $ContentHolder

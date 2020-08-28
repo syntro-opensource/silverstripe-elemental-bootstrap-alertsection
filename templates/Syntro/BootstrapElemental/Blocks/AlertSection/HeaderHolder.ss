@@ -1,5 +1,5 @@
 <div class="mb-2 d-flex align-items-center justify-content-center text-left">
-    <% if $FAIcon && useIcons %>
+    <% if DisplayIcon && useIcons %>
         $IconHolder
     <% end_if %>
     <% if ShowTitle %>

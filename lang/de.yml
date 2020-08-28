@@ -1,3 +1,12 @@
 de:
   Syntro\SilverStripeElementalBootstrapAlertSection\Elements\AlertSection:
     BlockType: Warnung
+    danger: Gefahr (rot)
+    warning: Warnung (gelb)
+    success: Positiv (grün)
+    primary: Primärfarbe
+    ICON: Symbol
+    DISPLAYICON: Symbol anzeigen
+    BUTTONS: Buttons
+    COLOR: Farbe
+    CONTENT: Inhalt
