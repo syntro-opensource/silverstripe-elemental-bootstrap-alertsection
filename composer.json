@@ -15,9 +15,9 @@
         "buckleshusky/fontawesomeiconpicker": "^1",
         "gorriecoe/silverstripe-link": "^1",
         "gorriecoe/silverstripe-linkfield": "^1",
-        "syntro/silverstripe-elemental-bootstrap-baseitems": "dev-master",
         "unclecheese/display-logic": "^2",
-        "syntro/silverstripe-elemental-icons": "dev-master"
+        "syntro/silverstripe-elemental-bootstrap-baseitems": "^0.1",
+        "syntro/silverstripe-elemental-icons": "^1"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
