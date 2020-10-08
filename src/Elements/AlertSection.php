@@ -11,14 +11,13 @@ use DNADesign\Elemental\Models\BaseElement;
 use BucklesHusky\FontAwesomeIconPicker\Forms\FAPickerField;
 use gorriecoe\Link\Models\Link;
 use gorriecoe\LinkField\LinkField;
-use Syntro\SilverStripeElementalBaseitems\Elements\BootstrapSectionBaseElement;
 
 /**
  *  Bootstrap based alert section
  *
  * @author Matthias Leutenegger <hello@syntro.ch>
  */
-class AlertSection extends BootstrapSectionBaseElement
+class AlertSection extends BaseElement
 {
     /**
      * This defines the block name in the CSS
@@ -43,6 +42,10 @@ class AlertSection extends BootstrapSectionBaseElement
      */
     private static $table_name = 'ElementAlertSection';
 
+    /**
+     * @var string
+     */
+    private static $controller_template = 'AlertSectionHolder';
 
     /**
      * if set to false, no Icons will be displayed
@@ -86,7 +89,7 @@ class AlertSection extends BootstrapSectionBaseElement
      */
     private static $text_colors_by_background = [
         'danger' => 'light',
-        'warning' => 'light',
+        'warning' => 'dark',
         'success' => 'light',
         'primary' => 'light',
     ];
@@ -226,45 +229,5 @@ class AlertSection extends BootstrapSectionBaseElement
     public function getType()
     {
         return _t(__CLASS__ . '.BlockType', 'Alert Section');
-    }
-
-    /**
-     * ButtonHolder - helperfunction to allow template-replacement
-     *
-     * @return string
-     */
-    public function ButtonHolder()
-    {
-        return $this->renderWith($this->getSubTemplate(__FUNCTION__));
-    }
-
-    /**
-     * ContentHolder - helperfunction to allow template-replacement
-     *
-     * @return string
-     */
-    public function ContentHolder()
-    {
-        return $this->renderWith($this->getSubTemplate(__FUNCTION__));
-    }
-
-    /**
-     * HeaderHolder - helperfunction to allow template-replacement
-     *
-     * @return string
-     */
-    public function HeaderHolder()
-    {
-        return $this->renderWith($this->getSubTemplate(__FUNCTION__));
-    }
-
-    /**
-     * IconHolder - helperfunction to allow template-replacement
-     *
-     * @return string
-     */
-    public function IconHolder()
-    {
-        return $this->renderWith($this->getSubTemplate(__FUNCTION__));
     }
 }
