@@ -1,6 +1,6 @@
 # SilverStripe elemental bootstrap alertsection
 
-[![Build Status](https://travis-ci.com/syntro-opensource/silverstripe-elemental-bootstrap-alertsection.svg?branch=master)](https://travis-ci.com/syntro-opensource/silverstripe-elemental-bootstrap-alertsection)
+![🎭 Tests](https://github.com/syntro-opensource/silverstripe-elemental-bootstrap-alertsection/workflows/%F0%9F%8E%AD%20Tests/badge.svg)
 [![phpstan](https://img.shields.io/badge/PHPStan-enabled-success)](https://github.com/phpstan/phpstan)
 [![codecov](https://codecov.io/gh/syntro-opensource/silverstripe-elemental-bootstrap-alertsection/branch/master/graph/badge.svg)](https://codecov.io/gh/syntro-opensource/silverstripe-elemental-bootstrap-alertsection)
 [![composer](https://img.shields.io/packagist/dt/syntro/silverstripe-elemental-bootstrap-alertsection?color=success&logo=composer)](https://packagist.org/packages/syntro/silverstripe-elemental-bootstrap-alertsection)
